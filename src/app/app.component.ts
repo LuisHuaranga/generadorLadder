@@ -12,14 +12,24 @@ import { OpenaiService } from './services/openai.service';
 })
 export class AppComponent implements OnInit {
 
+  public prompt?: string;
+
   constructor(private _apenaiService: OpenaiService){};
 
   ngOnInit(): void{
+    this.sendPrompt("crea un enclavamiento simple");
+  }
 
-    const prompt = {prompt: "este es un promt"}
-    this._apenaiService.sendPrompt(prompt).subscribe(
+  sendPrompt(prompt: string){
+    const body = {'prompt': prompt}
+    this._apenaiService.sendPrompt(body).subscribe(
       resp => {
-        console.log(resp);
+        if(resp.status == 1){
+          console.log(resp);
+        }
+      },
+      err =>{
+        console.log(err);
       }
     )
   }
