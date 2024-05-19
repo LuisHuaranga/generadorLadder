@@ -1,0 +1,14 @@
+
+
+<form #formEnviarPrompt = "ngForm" (ngSubmit)="sendPrompt()">
+   
+    <label for="prompt">Introduce tu prompt</label>
+    <br>
+    <mat-form-field class="textarea-prompt w-75">
+      <mat-label>Genera código Ladder mediante un prompt</mat-label>
+      <textarea matInput [(ngModel)]="textArea" required placeholder="Se genera codigo Ladder relacionado..." name="textArea"></textarea>
+    </mat-form-field>
+    <br>
+   <input type="submit" class="btn btn-primary" value="Generar" [disabled] = "!formEnviarPrompt.form.valid">
+
+</form>
