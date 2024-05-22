@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { FormPromptComponent } from './components/form-prompt/form-prompt.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,8 @@ import { FormPromptComponent } from './components/form-prompt/form-prompt.compon
   imports: [CommonModule, 
     RouterOutlet,
     MatCardModule,
-    FormPromptComponent
+    FormPromptComponent,
+    NgxUiLoaderModule
     ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
