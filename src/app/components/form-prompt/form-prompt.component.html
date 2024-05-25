@@ -1,14 +1,36 @@
-
-
-<form #formEnviarPrompt = "ngForm" (ngSubmit)="sendPrompt()">
-   
-    <label for="prompt">Introduce tu prompt</label>
-    <br>
-    <mat-form-field class="textarea-prompt w-75">
-      <mat-label>Genera código Ladder mediante un prompt</mat-label>
-      <textarea matInput [(ngModel)]="textArea" required placeholder="Se genera codigo Ladder relacionado..." name="textArea"></textarea>
-    </mat-form-field>
-    <br>
-   <input type="submit" class="btn btn-primary" value="Generar" [disabled] = "!formEnviarPrompt.form.valid">
-
+<form
+  #formEnviarPrompt="ngForm"
+  (ngSubmit)="sendPrompt()"
+  class="container mt-4"
+>
+  <div class="form-group">
+    <label for="textareaPrompt" class="mb-4">
+      Por favor, describe el proceso que deseas representar en un diagrama de
+      escalera (Ladder Diagram) utilizando lenguaje claro y detallado. Esto nos
+      ayudará a entender mejor tu requerimiento y a representarlo de manera
+      efectiva en el código.</label
+    >
+    <textarea
+      id="textareaPrompt"
+      class="form-control"
+      [(ngModel)]="textArea"
+      required
+      placeholder="Se genera código Ladder relacionado..."
+      name="textArea"
+    ></textarea>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary mt-3"
+    [disabled]="!formEnviarPrompt.form.valid"
+  >
+    Generar
+  </button>
 </form>
+
+<div class="container mt-4">
+  <h5>Código Ladder generado:</h5>
+  <div class="alert alert-secondary">
+    {{ respuesta.respuestaGTP }}
+  </div>
+</div>
