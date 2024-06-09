@@ -1,8 +1,35 @@
 <!-- app.component.html -->
 <div class="container mt-5 p-4 border border-secondary rounded">
+  
   <h1 class="text-center">Generador de código Ladder</h1>
-  <app-form-prompt></app-form-prompt>
+  <!-- Formulario -->
+  <app-form-prompt (childVariableChange)="onChildVariableChange($event)" ></app-form-prompt>
+
 </div>
+
+<div class="container mt-5 p-4 border border-secondary rounded">
+  <div class="card">
+    <div class="card-header text-center">
+      Resultados de la Ejecución
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Tiempo de Respuesta (Segundos):</strong>
+        <span>{{timeResponse}}</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Uso de Memoria (MB):</strong>
+        <span>{{memoryUsageMB}}</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Uso de CPU:</strong>
+        <span>{{cpuProfileSummary}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
 
 <ngx-ui-loader
   bgsColor="#ffcc84"
