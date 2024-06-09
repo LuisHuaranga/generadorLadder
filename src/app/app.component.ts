@@ -21,10 +21,23 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 export class AppComponent implements OnInit {
 
   public prompt?: string;
+  public childVariableChange?: any;
+  public timeResponse: any = 0.0;
+  public memoryUsageMB: any = 0.0;
+  public cpuProfileSummary: any = 0.0;
+
 
   constructor(){};
 
   ngOnInit(): void{
+  }
+
+  onChildVariableChange(value : any){
+    this.childVariableChange = value;
+    this.timeResponse = this.childVariableChange.responseTimeSeg;
+    this.memoryUsageMB = this.childVariableChange.memoryUsageMB;
+    this.cpuProfileSummary = this.childVariableChange.cpuProfileSummary;
+
   }
 
   
