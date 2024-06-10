@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
     this.timeResponse = this.childVariableChange.responseTimeSeg;
     this.memoryUsageMB = this.childVariableChange.memoryUsageMB;
     this.cpuProfileSummary = this.childVariableChange.cpuProfileSummary;
-
   }
 
   
